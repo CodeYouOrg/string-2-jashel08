@@ -7,10 +7,17 @@
 # add 'ly' instead.
 # If the string length is less than 3, leave it unchanged.
 # Return the resulting string.
-
-def verbing(s):
-    # +++your code here+++
-    return
+# +++your code here+++
+stringa = 'Bring'
+lenend = len(stringa)-3
+lastchars = stringa[lenend:]
+if len(stringa)>=3 and lastchars == 'ing':
+  print(stringa + "ly")
+elif len(stringa)>=3 and lastchars != 'ing':
+  print(stringa + 'ing')
+else:
+  print(stringa)
+  
 
 
 # E. not_bad
@@ -21,10 +28,18 @@ def verbing(s):
 # Return the resulting string.
 # So 'This dinner is not that bad!' yields:
 # This dinner is good!
-
-def not_bad(s):
-    # +++your code here+++
-    return
+# +++your code here+++
+s = 'This dinner is not super bad!'
+findnot = s.find('not')
+findbad = s.find('bad')
+endbad = findbad + 3
+range = endbad - findnot
+if findnot == -1 or findbad == -1:
+  print(s)
+elif findnot<findbad:
+  print(s.replace(s[findnot:endbad],'good'))
+else:
+  print(s)
 
 
 # F. front_back
@@ -34,10 +49,21 @@ def not_bad(s):
 # e.g. 'abcde', the front half is 'abc', the back half 'de'.
 # Given 2 strings, a and b, return a string of the form
 #  a-front + b-front + a-back + b-back
+# +++your code here+++
+import math
+t = "Blue"
+u = "Duck"
+strlent = len(t)
+strlenu = len(u)
+strlenthalf = (len(t) * .5)
+strlenuhalf = (len(u) * .5)
 
-def front_back(a, b):
-    # +++your code here+++
-    return
+if (strlent % 2) != 0 or (strlenu % 2) != 0:
+  strhalft = int(math.ceil(strlent * .5))
+  strhalfu = int(math.ceil(strlenu * .5))
+  print(t[0:strhalft]+ u[0:strhalfu] + t[strhalft:] + u[strhalfu:])
+else:
+  print(t[0:strlenthalf] + u[0:strlenuhalf] + t[strlenthalf:] + u[strlenthalf:])
 
 
 # Simple provided test() function used in main() to print
